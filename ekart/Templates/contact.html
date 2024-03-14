@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Ekart</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .map-section {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .address-info {
+            padding: 20px;
+        }
+        .address-info h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .address-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .register-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .register-form label {
+            font-weight: bold;
+        }
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .register-form button[type="submit"] {
+            border-radius: 5px;
+            padding: 12px 20px;
+            background-color: #ffc107;
+            border: none;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+        .register-form button[type="submit"]:hover {
+            background-color: #ffca2c;
+        }
+        .login-link {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Ekart</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.html">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="register.html">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.html">Logout</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row map-section">
+            <div class="col-md-8">
+                <h2>Location</h2>
+                <hr>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.0414211122056!2d75.53478682002732!3d21.012900585025893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd90fdc50f15713%3A0x79e0e242d1a075bd!2s31%2C%20Pimprala%20Rd%2C%20Om%20Shanti%20Nagar%2C%20Samartha%20Nagar%2C%20pimprala%2C%20Jalgaon%2C%20Maharashtra%20425001!5e0!3m2!1sen!2sin!4v1704696286593!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <div class="address-info">
+                    <h4>Contact Information</h4>
+                    <p><strong>Address:</strong><br>2nd floor, Landmark building<br>Near FC College<br>Pune, 411004<br>Maharashtra</p>
+                    <p><strong>Contact:</strong> 888000991</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="register-form">
+                    <h3 class="text-center"><i class="bi bi-person-plus-fill"></i> Register</h3>
+                    <hr>
+                    <form method="post" action="">
+                        <div class="mb-3">
+                            <label for="Input1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="Input1" name="uname" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="Input2" name="upassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input3" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="Input3" name="upass" placeholder="Confirm your password" required>
+                        </div>
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-warning">Register</button>
+                            <p class="login-link">Already registered? <a href="login.html">Login here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ekart|Home</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .anchor{
+        text-decoration: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+
+          
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Ekart</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login"><strong>Welcome, {{user.username}}</strong></a>
+                  </li>
+                  
+                </ul>
+                <form class="d-flex" method="GET" action="/search" role="search">
+                  <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+
+
+        </div>
+        
+      </div>
+
+        {% for i in data %}
+        <div class="row">
+            <div class="col-md-6 mt-5 mx-auto">
+                <h2>Customer Details & Product Details</h2><hr>
+                <div>
+                    <p><strong>Customer id:</strong> {{ i.user_id }}</p>
+                    <!-- Other customer details can be added here -->
+                </div>
+            </div>
+            <div class="col-md-6 mt-5 mx-auto">
+                <div class="col-md-12">
+                    <h2>Price Details</h2><hr>
+                    <p><strong>Product Price of {{n}} items:</strong> </p>
+                    <p><strong>Total Price:</strong> {{total}}</p> <!-- Calculate total price -->
+                    <a href="./order_details.html" class="btn btn-success">BUY</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 mt-5 mx-auto">
+                <div class="col-md-12">
+                    <h5>Product Details</h5>
+                    <hr>
+                    <div class="col-md-7 mt-5 mx-auto d-flex">
+                        <div class="col-md-5" style="margin-right: 10px;">
+                            <img src="{{ i.pid.p_img.url }}" alt="" width="250">
+                        </div>
+                        <div class="col-md-8">
+                            <p><strong>Product Name:</strong> {{ i.pid.name }}</p>
+                            <p><strong>Price :</strong> {{ i.pid.price }}</p>
+                            
+                            
+                            <p><strong>Product Details:</strong> {{ i.pid.product_details }}</p>
+                            <p>
+
+                            <a href="/updateqty/0/{{i.id}}" class="anchor"><button class="btn btn-danger">-</button></a>
+                            <input type="text" value="{{i.qty}}">
+                            <a href="/updateqty/1/{{i.id}}" class="anchor"><button class="btn btn-danger">+</button></a>
+                          </p>
+                          <a href="/removecart/{{i.id}}" class="anchor"><button type="button" class="btn btn-danger">Remove</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4"><h4>Address</h4>
+                <p>2nd floor , 
+                Landmark building
+                </p>
+                <p>Near FC College</p>
+                <p>Pune,411004</p>
+                <p>Maharashtra</p>
+                <p>Contact-888000991</p>
+            </div>
+            <div class="col-md-4"><h4>Quick Links</h4>
+                <a href="index.html" class="anchor">Home</a><br>
+                <a href="about.html" class="anchor">About</a><br>
+                <a href="contact.html" class="anchor">Contact</a><br>
+            </div>
+            <div class="col-md-4"><h4>Social Media</h4>
+                <!-- Social media links can be added here -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
