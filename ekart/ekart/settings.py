@@ -75,23 +75,23 @@ WSGI_APPLICATION = 'ekart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ekart',
-        'HOST':'localhost',
-        'USER':'root',
-        'PASSWORD':'6656',
-    
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ekart',
+#         'HOST':'localhost',
+#         'USER':'root',
+#         'PASSWORD':'6656',
+    
+#     }
+# }
 
 
 # Password validation

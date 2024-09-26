@@ -21,6 +21,8 @@ def index(request):
 #     return render(request, "login.html")
 def about(request):
     return render(request, "about.html")
+def contact(request):
+    return render(request, "contact.html")
 # def contact(request):
 #     return render(request, "contact.html")
 # def cart(request):
@@ -80,7 +82,7 @@ def user_login(request):
             print(u)
             if u is not None:
                 login(request,u)
-                return redirect("/product")
+                return redirect("/")
             else:
                 context["errmsg"]="username or password incorrect"
                 return render(request,"login.html",context)
